@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindSpace - Digital Journal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+
+    <aside class="sidebar">
+        <h2>🌸 MindSpace</h2>
+        <nav>
+            <a href="#dashboard">🏠 Dashboard</a>
+            <a href="#journal">📖 My Journal</a>
+            <a href="#mood">😊 Mood Tracker</a>
+            <a href="#activity">📊 Activity</a>
+        </nav>
+        <p class="sidebar-footer">Your safe space to reflect.</p>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+
+        <header class="welcome">
+            <div>
+                <h1>Welcome to MindSpace ✨</h1>
+                <p>A little space for your thoughts and feelings.</p>
+            </div>
+            <div class="date" id="currentDate"></div>
+        </header>
+
+        <!-- Statistics -->
+        <section class="stats">
+            <div class="stat-card">
+                <h3>Total Entries</h3>
+                <p id="totalEntries">0</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Today's Mood</h3>
+                <p id="todayMood">Not set</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Writing Streak</h3>
+                <p id="streak">0 days</p>
+            </div>
+        </section>
+
+        <!-- Mood Tracker -->
+        <section class="section-card" id="mood">
+            <h2>How are you feeling today?</h2>
+            <p>Select the mood that describes you best.</p>
+
+            <div class="mood-options">
+                <button type="button" class="mood-btn" data-mood="Happy">😊 Happy</button>
+                <button type="button" class="mood-btn" data-mood="Calm">😌 Calm</button>
+                <button type="button" class="mood-btn" data-mood="Okay">🙂 Okay</button>
+                <button type="button" class="mood-btn" data-mood="Sad">😔 Sad</button>
+                <button type="button" class="mood-btn" data-mood="Stressed">😣 Stressed</button>
+            </div>
+        </section>
+
+        <!-- Journal Form -->
+        <section class="section-card" id="journal">
+            <h2>Write Your Journal ✍️</h2>
+
+            <form id="journalForm">
+                <input
+                    type="text"
+                    id="entryTitle"
+                    placeholder="Give your entry a title..."
+                    required
+                >
+
+                <textarea
+                    id="entryText"
+                    placeholder="Write about your day, thoughts and feelings..."
+                    required
+                ></textarea>
+
+                <button type="submit" id="saveBtn">Save Entry</button>
+
+                <button type="button" id="cancelEdit" hidden>
+                    Cancel Edit
+                </button>
+            </form>
+
+            <!-- AI Analysis -->
+            <div class="ai-section">
+                <button type="button" id="analyseBtn">
+                    ✨ Analyse My Journal with AI
+                </button>
+
+                <div id="aiResult" hidden>
+                    <h3>🌸 Your AI Insights</h3>
+                    <div id="aiResponse"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weekly Activity -->
+        <section class="section-card" id="activity">
+            <h2>Your Weekly Activity 📊</h2>
+            <div id="weeklyChart" class="chart"></div>
+        </section>
+
+        <!-- Recent Entries -->
+        <section class="section-card">
+            <h2>Recent Journal Entries 📚</h2>
+
+            <div class="filters">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search entries..."
+                >
+
+                <select id="moodFilter">
+                    <option value="All">All Moods</option>
+                    <option value="Happy">Happy</option>
+                    <option value="Calm">Calm</option>
+                    <option value="Okay">Okay</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Stressed">Stressed</option>
+                    <option value="Not selected">No Mood</option>
+                </select>
+            </div>
+
+            <div id="entriesList">
+                <p class="empty-message">
+                    No journal entries yet. Start writing!
+                </p>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
